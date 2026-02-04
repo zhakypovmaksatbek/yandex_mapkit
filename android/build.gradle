@@ -9,7 +9,6 @@ buildscript {
         google()
         mavenCentral()
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.1'
     }
@@ -28,28 +27,26 @@ android {
     buildFeatures {
         buildConfig = true
     }
-
+    
     if (project.android.hasProperty("namespace")) {
         namespace 'com.unact.yandexmapkit'
     }
-
+    
     sourceSets {
         main {
             java {
                 include("com/unact/yandexmapkit/lite/*")
-
                 if (variant == "lite") {
                     exclude("com/unact/yandexmapkit/full/*")
                 }
             }
         }
     }
-
-    compileSdkVersion 33
-
+    
+    compileSdkVersion 35 
+    
     defaultConfig {
-        minSdkVersion 21
-
+        minSdkVersion 26  
         buildConfigField "com.unact.yandexmapkit.Init", "YANDEX_MAPKIT_INIT", init
     }
 }
