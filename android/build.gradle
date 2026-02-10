@@ -10,7 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.5.0'  // Güncelle
+        classpath 'com.android.tools.build:gradle:8.5.0'
     }
 }
 
@@ -35,7 +35,7 @@ android {
     sourceSets {
         main {
             java {
-                include("com/unact/yandexmapkit/full/*")  // full kullan
+                include("com/unact/yandexmapkit/full/*")
                 if (variant == "lite") {
                     exclude("com/unact/yandexmapkit/full/*")
                 }
@@ -43,14 +43,19 @@ android {
         }
     }
     
-    compileSdkVersion 36  
+    compileSdkVersion 36
+    
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
     
     defaultConfig {
-        minSdkVersion 26 
+        minSdkVersion 26
         buildConfigField "com.unact.yandexmapkit.Init", "YANDEX_MAPKIT_INIT", init
     }
 }
 
 dependencies {
-    implementation 'com.yandex.android:maps.mobile:4.22.0-full'  
+    implementation 'com.yandex.android:maps.mobile:4.22.0-full'
 }
